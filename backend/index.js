@@ -14,12 +14,9 @@ const baseUrl = `https://www.googleapis.com/books/v1/volumes?`
 
 app.get('/:filter', async (request, response) => {
   const searchFilter = request.params.filter
-  console.log(searchFilter)
-  const url = `${baseUrl}q=${searchFilter}&key=${KEY}`
+  const url = `${baseUrl}q=${searchFilter}&maxResults=10&key=${KEY}`
   const books = await axios.get(url)
-  
   response.send(books.data.items)
-
 })
 
 app.listen(PORT, () => {

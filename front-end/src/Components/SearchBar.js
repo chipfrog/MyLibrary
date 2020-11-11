@@ -6,11 +6,10 @@ import {  getBooks } from '../services/googleBooks'
 const Searchbar = (props) => { 
   const [text, setText] = useState('')
 
-  const fetchBooks = (event) => {
+  const fetchBooks = async (event) => {
     event.preventDefault()
-    const books = getBooks(text)
+    const books = await getBooks(text)
     props.setBooks(books)
-    setText('')
   }
 
   const handleChange = (event) => {
