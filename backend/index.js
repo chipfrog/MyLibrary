@@ -1,7 +1,9 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
+app.use(cors())
 app.use(express.json())
 const axios = require('axios')
 
@@ -10,15 +12,13 @@ const PORT = process.env.PORT
 
 const baseUrl = `https://www.googleapis.com/books/v1/volumes?`
 
-console.log(baseUrl)
-
-app.get('/', async (request, response) => {
-  const searchFilter = request.body.filter
+app.get('/:filter', async (request, response) => {
+  const searchFilter = request.params.filter
   console.log(searchFilter)
   const url = `${baseUrl}q=${searchFilter}&key=${KEY}`
-  const result = await axios.get(url)
+  const books = await axios.get(url)
   
-  response.send(result.data.items)
+  response.send(books.data.items)
 
 })
 

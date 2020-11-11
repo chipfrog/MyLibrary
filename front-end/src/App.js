@@ -1,12 +1,17 @@
+import { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import './App.css';
 import Searchbar from './Components/SearchBar'
 
-function App() {
+
+const App = () => {
+  const [books, setBooks] = useState(null)
+
   return (
-    <div className="App">
+    <Container>
       <h1>My Library</h1>
-      <Searchbar />
-    </div>
+      <Searchbar setBooks={setBooks}/>
+    </Container>
   );
 }
 
