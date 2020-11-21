@@ -1,10 +1,10 @@
 const express = require('express')
 const config = require('./utils/config')
 const googleBooksRouter = require('./controllers/google_books')
+const userRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
 const app = express()
 const cors = require('cors')
-//const usersRouter = require('./controllers/users')
-
 
 const mongoose = require('mongoose')
 
@@ -20,7 +20,7 @@ app.use(cors())
 app.use(express.static('build'))
 app.use(express.json())
 app.use('/api/googlebooks', googleBooksRouter)
-
-//app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
+app.use('/api/user', userRouter)
 
 module.exports = app
