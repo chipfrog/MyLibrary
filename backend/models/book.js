@@ -1,7 +1,6 @@
-const mogoose = require('mongoose')
-const mongooseUniqueValidator = require('mongoose-unique-validator')
+const mongoose = require('mongoose')
 
-const bookSchema = new mogoose.Schema({
+const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
   publicationYear: Number,
