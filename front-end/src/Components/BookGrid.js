@@ -2,35 +2,32 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Book from './Book'
 
 const BookGrid = ({ books }) => {
-  console.log(books)
   let size = Object.keys(books).length
-  console.log(size)
-  
   let rows = []
   let rowCounter = 0
   let itemCounter = 0
   
 
   for (let i = 0; i < size; i ++) {
-    if (!(itemCounter % 4)) {
+    if (!(itemCounter % 6)) {
       rowCounter ++
       rows[rowCounter] = []
     }
-    rows[rowCounter].push(books[i])
-    itemCounter ++
+    // Adds only books with cover image
+    if (books[i].volumeInfo.imageLinks !== undefined) {
+      rows[rowCounter].push(books[i])
+      itemCounter ++
+    }
   }
-
-  console.log(rows)
-  
   
   return (
-    <Container>
+    <div >
       {rows.map(row => {
         return (
-        <Row>
+        <Row className='text-center'>
           {row.map(book => {
             return (
-              <Col key={book.id}>
+              <Col sm={6} md={4} lg={2} key={book.id}>
                 <Book info={book} key={book.id}/>
               </Col>
             )
@@ -38,7 +35,7 @@ const BookGrid = ({ books }) => {
         </Row>
         )
       })}
-    </Container>
+    </div>
   )
 }
 

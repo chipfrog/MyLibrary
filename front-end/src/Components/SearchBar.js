@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form, Row, Col } from 'react-bootstrap'
 import { BsSearch } from 'react-icons/bs'
-import {  getBooks } from '../services/googleBooks'
+import {  getBooks } from '../Services/googleBooks'
 
 const Searchbar = (props) => { 
   const [text, setText] = useState('')
@@ -23,16 +23,16 @@ const Searchbar = (props) => {
   }
  
   return (
-    <Form id={'search bar'} onSubmit={fetchBooks}>
+    <Form className="mt-5 mb-5" id={'search bar'} onSubmit={fetchBooks}>
       <Row>
-        <Col>
+        <Col xs={{ span: 5, offset: 3 }} sm={{ span: 6, offset: 3 }} md={{ span: 6, offset: 2 }} lg={{ span: 6, offset: 2 }}>
           <Form.Control 
             type="text" 
             placeholder="Search books"
             onChange={handleChange}
           />
         </Col>
-        <Col>
+        <Col xs={1} >
           <Button variant="primary" type="submit">
             <BsSearch />
           </Button>
