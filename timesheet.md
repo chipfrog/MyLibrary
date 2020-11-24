@@ -8,5 +8,5 @@
 |11.11.2020 | 1h | Started customizing book list appearance, studied Bootstrap Cards |
 |20.11.2020 | 3h | Studied MongoDB, connection to MongoDB, rough schemas |
 |21.11.2020 | 3,5h | got express Router working, user login from backend, adding books from backend |
-|24.11.2020 | 4h | Studied Bootstrap and tested UI changes |
-|Total time | 16,5h| |
+|24.11.2020 | 5h | Studied Bootstrap and tested UI changes. Logging in from frontend |
+|Total time | 17,5h| |
