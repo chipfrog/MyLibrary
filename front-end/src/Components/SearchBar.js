@@ -10,15 +10,20 @@ const Searchbar = (props) => {
     event.preventDefault()
     const books = await getBooks(text)
     props.setBooks(books)
+    clearSearhBar()
   }
 
   const handleChange = (event) => {
     event.preventDefault()
     setText(event.target.value)
   }
+
+  const clearSearhBar = () => {
+    document.getElementById('search bar').reset()
+  }
  
   return (
-    <Form onSubmit={fetchBooks}>
+    <Form id={'search bar'} onSubmit={fetchBooks}>
       <Row>
         <Col>
           <Form.Control 
