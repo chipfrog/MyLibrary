@@ -7,12 +7,23 @@ import Login from './Views/Login'
 
 const App = () => {
   const [books, setBooks] = useState([])
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
+
+  const props = {
+    username,
+    setUsername,
+    password,
+    setPassword,
+    user,
+    setUser
+  }
 
   if (user === null) {
     return (
       <Container>
-        <Login setUser={setUser}/>
+        <Login {...props} />
       </Container>
     )
   }

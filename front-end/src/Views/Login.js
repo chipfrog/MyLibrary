@@ -1,18 +1,13 @@
-import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
+import React from 'react'
+import { Button, Form, Row, Col } from 'react-bootstrap'
 import { login } from '../Services/login'
 
-const Login = ({ setUser }) => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+const Login = ({ setUser, setUsername, setPassword, password, username }) => {
 
   const handleLogin = async (event) => {
-    event.preventDefault()
-    
+    event.preventDefault() 
     try {
-      const user = await login({
-        username, password
-      })
+      const user = await login({ username, password })
       setUser(user)
       setUsername('')
       setPassword('')
@@ -22,20 +17,28 @@ const Login = ({ setUser }) => {
   }
 
   return (
-    <Form onSubmit={handleLogin}>
-      <Form.Group controlId="formBasicText">
-        <Form.Label>Username</Form.Label>
-        <Form.Control type="text" placeholder="Username" onChange={({ target }) => setUsername(target.value)} />
+    <Form className="mt-5" onSubmit={handleLogin}>
+      <h2>Login</h2>
+      <Form.Group as={Row} controlId="formBasicText">
+        <Form.Label column sm={2}>Username</Form.Label>
+        <Col md={5} lg={5}>
+          <Form.Control type="text" placeholder="Username" onChange={({ target }) => setUsername(target.value)} />
+        </Col>
       </Form.Group>
       
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" onChange={({ target }) => setPassword(target.value)} />
+      <Form.Group as={Row} controlId="formBasicPassword">
+        <Form.Label column sm={2}>Password</Form.Label>
+        <Col md={5} lg={5}>
+          <Form.Control type="password" placeholder="Password" onChange={({ target }) => setPassword(target.value)} />
+        </Col>
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Login
-      </Button>
-    </Form>
+        <Button  variant="primary" type="submit">
+          Login
+        </Button>{' '}
+        <Button  variant="success" type="submit">
+          Create User
+        </Button>
+      </Form>
   )
 }
 
