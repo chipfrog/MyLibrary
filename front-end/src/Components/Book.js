@@ -1,12 +1,22 @@
 import React from 'react'
 import { Image } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-const Book = ({ info }) => {
-  const bookInfo = info.volumeInfo
+const Book = ({ info, setBookInfo }) => {
+  
+  const redirectToBookView = async () => {
+    try {
+      await setBookInfo(info)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
     return (
       <p>
-        <Image src={bookInfo.imageLinks.thumbnail} />
+        <Link to={`/search/${info.etag}`}>
+          <Image src={info.volumeInfo.imageLinks.thumbnail} onClick={() => redirectToBookView()} />
+        </Link>
       </p>
     )
     // return (
