@@ -1,5 +1,6 @@
 const express = require('express')
 const config = require('./utils/config')
+require('express-async-errors')
 const googleBooksRouter = require('./controllers/google_books')
 const userRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')

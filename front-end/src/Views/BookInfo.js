@@ -1,4 +1,6 @@
 import React from 'react'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
+import { addBook } from '../Services/books'
 
 const BookInfo = ({ bookInfo }) => {
 
@@ -8,9 +10,39 @@ const BookInfo = ({ bookInfo }) => {
     )
   }
 
+  const handleBookAdding = async () => {
+    console.log(bookInfo)
+    await addBook(bookInfo)
+  }
+
+
+  // Korjaa näkymä, kun kirjalijoita enemmän kuin yksi!
   
   return (
-    <h2 className="mt-3 text-center">{bookInfo.volumeInfo.title}</h2>
+    <Container className="pt-4 text-center">
+      <h2>{bookInfo.volumeInfo.title}</h2>
+      <h3>{bookInfo.volumeInfo.subtitle}</h3>
+      <h5><i>{bookInfo.volumeInfo.authors}</i></h5>
+      <Row className="pt-4">
+        <Col md={6}>
+          <Image src={bookInfo.volumeInfo.imageLinks.thumbnail} />
+        </Col>
+        <Col className="text-justify">
+          {bookInfo.volumeInfo.description}
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button onClick={() => handleBookAdding()}>
+            Add to Library
+          </Button>
+        </Col>
+        <Col>
+        
+        </Col>  
+      </Row>
+    </Container>
+
   )
 
 

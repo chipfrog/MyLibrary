@@ -1,13 +1,17 @@
 import React from 'react'
 import { Button, Form, Row, Col } from 'react-bootstrap'
 import { login } from '../Services/login'
+import { setToken } from '../Services/books'
 
 const Login = ({ setUser, setUsername, setPassword, password, username }) => {
 
   const handleLogin = async (event) => {
     event.preventDefault() 
+    
     try {
       const user = await login({ username, password })
+      
+      setToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')

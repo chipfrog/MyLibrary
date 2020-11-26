@@ -30,13 +30,13 @@ const App = () => {
     )
   }
 
-  // if (user === null) {
-  //   return (
-  //     <Container>
-  //       <Login {...props} />
-  //     </Container>
-  //   )
-  // }
+  if (user === null) {
+    return (
+      <Container>
+        <Login {...props} />
+      </Container>
+    )
+  }
   
 
   return (

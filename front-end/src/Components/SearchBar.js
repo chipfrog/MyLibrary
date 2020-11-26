@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form, Row, Col } from 'react-bootstrap'
 import { BsSearch } from 'react-icons/bs'
-import { getBooks } from '../Services/googleBooks'
+import { getBooks } from '../Services/books'
 
 const Searchbar = (props) => { 
   const [text, setText] = useState('')
