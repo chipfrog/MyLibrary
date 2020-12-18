@@ -40,15 +40,15 @@ googleBooksRouter.post('/', async (req, res) => {
     review: body.review,
     owned: body.owned,
     read: body.read,
-    quotes: body.quotes,
-    user: user._id
+    quotes: body.quotes
   })
 
-  const savedBook = await book.save()
-  user.books = user.books.concat(savedBook._id)
+  // const savedBook = await book.save()
+  // user.books = user.books.concat(savedBook._id)
+  user.books = user.books.concat(book)
   await user.save()
   console.log(user.books)
-  res.json(savedBook.toJSON())
+  res.json(book.toJSON())
 })
 
 module.exports = googleBooksRouter
