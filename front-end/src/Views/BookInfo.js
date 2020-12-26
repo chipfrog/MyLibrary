@@ -1,8 +1,11 @@
 import React from 'react'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import { addBook } from '../Services/books'
+import { useSelector } from 'react-redux'
 
-const BookInfo = ({ bookInfo }) => {
+const BookInfo = () => {
+  const info = useSelector(state => state.bookInfo)
+  const bookInfo = info.bookInfo
 
   if (bookInfo === null) {
     return (

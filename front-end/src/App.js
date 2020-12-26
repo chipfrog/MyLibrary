@@ -9,11 +9,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 
 const App = () => {
-  const [books, setBooks] = useState([])
+  // const [books, setBooks] = useState([])
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
-  const [bookInfo, setBookInfo] = useState(null)
+  // const [bookInfo, setBookInfo] = useState(null)
 
   const props = {
     username,
@@ -26,7 +26,9 @@ const App = () => {
 
   const Home = () => {
     return (
-        <h1 className="mt-3 text-center">My Library</h1>
+        <div>
+          <h1 className="mt-3 text-center">My Library</h1>
+        </div>
     )
   }
 
@@ -37,19 +39,18 @@ const App = () => {
       </Container>
     )
   }
-  
 
   return (
     <Router>
       <Navigation />
       <Switch>
         <Route path="/search/:etag">
-          <BookInfo bookInfo={bookInfo}/>
+          <BookInfo />
         </Route>
         <Route path="/search">
           <h2 className="mt-3 text-center">Google Books Search</h2>
-          <Searchbar setBooks={setBooks}/>
-          <BookGrid books={books} setBookInfo={setBookInfo}/>
+          <Searchbar />
+          <BookGrid />
         </Route>
         <Route path="/">
           <Home />

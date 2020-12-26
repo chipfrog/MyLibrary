@@ -1,21 +1,26 @@
 import React from 'react'
 import { Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setBookInfo } from '../Reducers/bookInfoReducer'
 
-const Book = ({ info, setBookInfo }) => {
+const Book = ({ info }) => {
+  const dispatch = useDispatch()
   
-  const redirectToBookView = async () => {
-    try {
-      await setBookInfo(info)
-    } catch (error) {
-      console.log(error)
-    }
+  const setInfo = async () => {
+    dispatch(setBookInfo(info))
+    console.log(info)
+    // try {
+    //   await setBookInfo(info)
+    // } catch (error) {
+    //   console.log(error)
+    // }
   }
 
     return (
       <p>
         <Link to={`/search/${info.etag}`}>
-          <Image src={info.volumeInfo.imageLinks.thumbnail} onClick={() => redirectToBookView()} />
+          <Image src={info.volumeInfo.imageLinks.thumbnail} onClick={() => setInfo()} />
         </Link>
       </p>
     )

@@ -10,11 +10,13 @@ const Login = ({ setUser, setUsername, setPassword, password, username }) => {
     
     try {
       const user = await login({ username, password })
-      
       setToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')
+      
+
+      
     } catch (error) {
       console.log('wrong credentials')
     }
