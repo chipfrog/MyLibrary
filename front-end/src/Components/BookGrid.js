@@ -1,7 +1,10 @@
 import { Row, Col } from 'react-bootstrap';
+import { useSelector } from 'react-redux'
 import Book from './Book'
 
-const BookGrid = ({ books, setBookInfo }) => {
+const BookGrid = () => {
+  const books = useSelector(state => state.bookSearch)
+
   let size = Object.keys(books).length
   let rows = []
   let rowCounter = 0
@@ -29,7 +32,7 @@ const BookGrid = ({ books, setBookInfo }) => {
           {row.map(book => {
             return (
               <Col sm={6} md={4} lg={2} key={book.etag}>
-                <Book info={book} setBookInfo={setBookInfo} key={book.etag}/>
+                <Book info={book} key={book.etag}/>
               </Col>
             )
           })}

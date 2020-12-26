@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { Button, Form, Row, Col } from 'react-bootstrap'
 import { BsSearch } from 'react-icons/bs'
-import { getBooks } from '../Services/books'
+import { useDispatch } from 'react-redux'
+import { searchBooks } from '../Reducers/bookSearchReducer'
 
-const Searchbar = (props) => { 
+const Searchbar = () => { 
   const [text, setText] = useState('')
+  const dispatch = useDispatch()
 
   const fetchBooks = async (event) => {
     event.preventDefault()
-    const books = await getBooks(text)
-    props.setBooks(books)
+    dispatch(searchBooks(text))
     clearSearhBar()
   }
 
