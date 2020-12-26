@@ -11,4 +11,5 @@
 |24.11.2020 | 5h | Studied Bootstrap and tested UI changes. Logging in from frontend |
 |25.11.2020 | 3,5h | Experimented with React Router and started using it, fixed some bugs |
 |26.11.2020 | 4h | Adding books from frontend, new view for books, experimented with other book related APIs |
-|Total time | 25h| |
+|26.12.2020 | 2h | Started using Redux |
+|Total time | 27h| |
