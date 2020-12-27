@@ -1,28 +1,14 @@
-import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Searchbar from './Components/SearchBar'
 import BookGrid from './Components/BookGrid'
 import Navigation from './Components/NavBar'
 import Login from './Views/Login'
 import BookInfo from './Views/BookInfo'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const App = () => {
-  // const [books, setBooks] = useState([])
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [user, setUser] = useState(null)
-  // const [bookInfo, setBookInfo] = useState(null)
-
-  const props = {
-    username,
-    setUsername,
-    password,
-    setPassword,
-    user,
-    setUser
-  }
+  const user = useSelector(state => state.login.user)
 
   const Home = () => {
     return (
@@ -35,7 +21,7 @@ const App = () => {
   if (user === null) {
     return (
       <Container>
-        <Login {...props} />
+        <Login />
       </Container>
     )
   }

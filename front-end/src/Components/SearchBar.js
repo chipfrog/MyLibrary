@@ -1,22 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Form, Row, Col } from 'react-bootstrap'
 import { BsSearch } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
 import { searchBooks } from '../Reducers/bookSearchReducer'
 
 const Searchbar = () => { 
-  const [text, setText] = useState('')
   const dispatch = useDispatch()
-
+  
   const fetchBooks = async (event) => {
     event.preventDefault()
-    dispatch(searchBooks(text))
+    const filter = event.target.filter.value
+    dispatch(searchBooks(filter))
     clearSearhBar()
-  }
-
-  const handleChange = (event) => {
-    event.preventDefault()
-    setText(event.target.value)
   }
 
   const clearSearhBar = () => {
@@ -28,9 +23,9 @@ const Searchbar = () => {
       <Row>
         <Col xs={{ span: 5, offset: 3 }} sm={{ span: 6, offset: 3 }} md={{ span: 6, offset: 2 }} lg={{ span: 6, offset: 2 }}>
           <Form.Control 
-            type="text" 
+            type="text"
+            name="filter" 
             placeholder="Search books"
-            onChange={handleChange}
           />
         </Col>
         <Col xs={1} >

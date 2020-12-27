@@ -18,12 +18,5 @@ export const searchBooks = (filter) => {
     })
   }
 }
- 
-// export const searchBooks = (books) => {
-//   return {
-//     type: 'BOOK_SEARCH',
-//     data: books
-//   }
-// }
 
 export default bookSearchReducer

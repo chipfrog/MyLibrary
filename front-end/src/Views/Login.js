@@ -1,25 +1,16 @@
 import React from 'react'
 import { Button, Form, Row, Col } from 'react-bootstrap'
-import { login } from '../Services/login'
-import { setToken } from '../Services/books'
+import { useDispatch } from 'react-redux'
+import { tryLogin } from '../Reducers/loginReducer'
 
-const Login = ({ setUser, setUsername, setPassword, password, username }) => {
+const Login = () => {
+  const dispatch = useDispatch()
 
   const handleLogin = async (event) => {
-    event.preventDefault() 
-    
-    try {
-      const user = await login({ username, password })
-      setToken(user.token)
-      setUser(user)
-      setUsername('')
-      setPassword('')
-      
-
-      
-    } catch (error) {
-      console.log('wrong credentials')
-    }
+    event.preventDefault()
+    const username = event.target.username.value
+    const password = event.target.password.value
+    dispatch(tryLogin({ username, password }))
   }
 
   return (
@@ -28,14 +19,14 @@ const Login = ({ setUser, setUsername, setPassword, password, username }) => {
       <Form.Group as={Row} controlId="formBasicText">
         <Form.Label column sm={2}>Username</Form.Label>
         <Col md={5} lg={5}>
-          <Form.Control type="text" placeholder="Username" onChange={({ target }) => setUsername(target.value)} />
+          <Form.Control type="text" name="username" placeholder="Username" />
         </Col>
       </Form.Group>
       
       <Form.Group as={Row} controlId="formBasicPassword">
         <Form.Label column sm={2}>Password</Form.Label>
         <Col md={5} lg={5}>
-          <Form.Control type="password" placeholder="Password" onChange={({ target }) => setPassword(target.value)} />
+          <Form.Control type="password" name="password" placeholder="Password"  />
         </Col>
       </Form.Group>
         <Button  variant="primary" type="submit">
