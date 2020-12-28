@@ -12,4 +12,5 @@
 |25.11.2020 | 3,5h | Experimented with React Router and started using it, fixed some bugs |
 |26.11.2020 | 4h | Adding books from frontend, new view for books, experimented with other book related APIs |
 |26.12.2020 | 2h | Started using Redux |
-|Total time | 27h| |
+|27.12.2020 | 2h | More components using Redux |
+|Total time | 29h| |
