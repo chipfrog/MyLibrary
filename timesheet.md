@@ -13,4 +13,5 @@
 |26.11.2020 | 4h | Adding books from frontend, new view for books, experimented with other book related APIs |
 |26.12.2020 | 2h | Started using Redux |
 |27.12.2020 | 2h | More components using Redux |
-|Total time | 29h| |
+|5.1.2021 | 4.5h | Page refresh doesn't logout user, search results are deleted during logout, user's books can be listed, studied redux store, fixed bugs |
+|Total time | 33.5h | |
