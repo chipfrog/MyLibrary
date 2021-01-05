@@ -9,10 +9,10 @@ const userReducer = (state = null, action) => {
   }
 }
 
-export const getUserInfo = () => {
+export const getUserInfo = (token) => {
   return async dispatch => {
     try {
-      const user = await getUser()
+      const user = await getUser(token)
       dispatch({
         type: 'GET_USER',
         data: user

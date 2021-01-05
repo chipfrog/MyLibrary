@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 const BookInfo = () => {
   const info = useSelector(state => state.bookInfo)
   const token = useSelector(state => state.login.token)
-  
   const bookInfo = info.bookInfo
 
   if (bookInfo === null) {
@@ -18,7 +17,6 @@ const BookInfo = () => {
   const handleBookAdding = async () => {
     await addBook(bookInfo, token)
   }
-  
   // Korjaa näkymä, kun kirjalijoita enemmän kuin yksi!
   
   return (
@@ -45,7 +43,6 @@ const BookInfo = () => {
         </Col>  
       </Row>
     </Container>
-
   )
 }
 

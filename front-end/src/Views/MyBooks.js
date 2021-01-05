@@ -1,19 +1,21 @@
-import { useDispatch } from 'react-redux'
-import { getUserInfo } from '../Reducers/userReducer'
+import { useDispatch, useSelector  } from 'react-redux'
+import { Button } from 'react-bootstrap'
 
 const MyBooks = () => {
   const dispatch = useDispatch()
-
-  const printUserInfo = (event) => {
+  const books = useSelector(state => state.login.user_books)
+  
+  const handleBooks = (event) => {
     event.preventDefault()
-    const user = dispatch(getUserInfo())
-    console.log(user)
+    for(let i = 0; i < books.length; i ++) {
+      console.log(books[i].title)
+    }
   }
 
   return (
     <div>
       <h1 className="mt-3 text-center">My Library</h1>
-      <button onClick={printUserInfo}>Print user!</button>
+      <Button onClick={handleBooks} >print user's library</Button>
     </div>
   )
 }
