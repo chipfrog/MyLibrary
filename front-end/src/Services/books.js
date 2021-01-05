@@ -7,15 +7,11 @@ export const getBooks = async (filter) => {
   return result.data
 }
 
-// let token = null
+export const addBook = async ( bookInfo, token ) => {
+  const bearerToken = `bearer ${token}`
 
-// export const setTokenForBooks = newToken => {
-//   token = `bearer ${newToken}`
-// }
-
-export const addBook = async ({ bookInfo, token }) => {
   const config = {
-    headers: { Authorization: token }
+    headers: { Authorization: bearerToken }
   }
 
   const bookData = {

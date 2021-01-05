@@ -5,10 +5,9 @@ import { useSelector } from 'react-redux'
 
 const BookInfo = () => {
   const info = useSelector(state => state.bookInfo)
-  const user = useSelector(state => state.login)
+  const token = useSelector(state => state.login.token)
   
   const bookInfo = info.bookInfo
-  const userToken = user.token
 
   if (bookInfo === null) {
     return (
@@ -17,8 +16,7 @@ const BookInfo = () => {
   }
 
   const handleBookAdding = async () => {
-    console.log(bookInfo)
-    await addBook({ bookInfo, userToken })
+    await addBook(bookInfo, token)
   }
   
   // Korjaa näkymä, kun kirjalijoita enemmän kuin yksi!

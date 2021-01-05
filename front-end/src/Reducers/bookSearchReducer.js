@@ -15,8 +15,7 @@ export const initSearchResults = () => {
   return {
     type: 'INIT_SEARCH_RESULTS',
     data: []
-  }  
-  
+  }
 }
 
 export const searchBooks = (filter) => {
