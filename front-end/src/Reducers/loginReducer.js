@@ -1,6 +1,6 @@
 import { login } from '../Services/login'
-import { setTokenForBooks } from '../Services/books'
-import { setTokenForUser } from '../Services/user'
+// import { setTokenForBooks } from '../Services/books'
+// import { setTokenForUser } from '../Services/user'
 
 const initialState = {
   username: '',
@@ -19,8 +19,8 @@ const loginReducer = (state = initialState, action) => {
 }
 
 export const tryLogout = () => {
-  setTokenForBooks(null)
-  setTokenForUser(null)
+  // setTokenForBooks(null)
+  // setTokenForUser(null)
   return {
     type: 'LOGOUT',
     data: initialState
@@ -32,8 +32,8 @@ export const tryLogin = ({ username, password }) => {
   return async dispatch => {
     try {
       const user = await login({ username, password })
-      setTokenForBooks(user.token)
-      setTokenForUser(user.token)
+      // setTokenForBooks(user.token)
+      // setTokenForUser(user.token)
       dispatch({
         type: 'LOGIN',
         data: user

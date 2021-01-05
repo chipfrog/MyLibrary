@@ -14,11 +14,39 @@ const reducer = combineReducers({
   user: userReducer
 })
 
+const saveUserState = (state) => {
+  try {
+    const userState = JSON.stringify(state)
+    localStorage.setItem('userState', userState)
+  } catch (error) {
+    return undefined
+  }
+}
+
+const getUserState = () => {
+  try {
+    const userStateInStorage = localStorage.getItem('userState')
+    if (userStateInStorage === null) {
+      return undefined
+    }
+    return JSON.parse(userStateInStorage)
+  } catch (error) {
+    return undefined
+  }
+}
+
+const stateFromLocalStorage = getUserState()
+
 const store = createStore(
   reducer,
+  stateFromLocalStorage,
   composeWithDevTools(
     applyMiddleware(thunk)
   )
 )
+
+store.subscribe(() => {
+  saveUserState(store.getState())
+})
 
 export default store
