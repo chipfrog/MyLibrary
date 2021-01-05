@@ -3,11 +3,13 @@ import { Navbar, Nav } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { tryLogout } from '../Reducers/loginReducer'
+import { initSearchResults } from '../Reducers/bookSearchReducer'
 
 const Navigation = () => {
   const dispatch = useDispatch()
   
   const handleLogout = () => {
+    dispatch(initSearchResults())
     dispatch(tryLogout())
   }
 

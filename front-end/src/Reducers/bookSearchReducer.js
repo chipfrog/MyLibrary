@@ -12,12 +12,11 @@ const bookSearchReducer = (state = [], action) => {
 }
 
 export const initSearchResults = () => {
-  return async dispatch => {
-    dispatch({
-      type: 'INIT_SEARH_RESULTS',
-      data: ['one', 'two']
-    })
-  }
+  return {
+    type: 'INIT_SEARCH_RESULTS',
+    data: []
+  }  
+  
 }
 
 export const searchBooks = (filter) => {

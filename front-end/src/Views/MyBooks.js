@@ -4,7 +4,8 @@ import { getUserInfo } from '../Reducers/userReducer'
 const MyBooks = () => {
   const dispatch = useDispatch()
 
-  const printUserInfo = () => {
+  const printUserInfo = (event) => {
+    event.preventDefault()
     const user = dispatch(getUserInfo())
     console.log(user)
   }
