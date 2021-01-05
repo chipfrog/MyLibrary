@@ -9,7 +9,7 @@ export const getBooks = async (filter) => {
 
 let token = null
 
-export const setToken = newToken => {
+export const setTokenForBooks = newToken => {
   token = `bearer ${newToken}`
 }
 

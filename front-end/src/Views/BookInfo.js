@@ -17,8 +17,7 @@ const BookInfo = () => {
     console.log(bookInfo)
     await addBook(bookInfo)
   }
-
-
+  
   // Korjaa näkymä, kun kirjalijoita enemmän kuin yksi!
   
   return (
@@ -47,8 +46,6 @@ const BookInfo = () => {
     </Container>
 
   )
-
-
 }
 
 export default BookInfo

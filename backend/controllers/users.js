@@ -24,7 +24,9 @@ usersRouter.get('/', async (req, res) => {
   }
 
   const user = await User.findById(decodedToken.id)
-  res.json(user.toJSON())
+  console.log(user)
+  res.send(user.toJSON())
+  // res.json(user.toJSON())
 })
 
 usersRouter.post('/', async (req, res) => {

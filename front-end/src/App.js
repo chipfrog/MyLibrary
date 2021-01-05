@@ -4,19 +4,12 @@ import BookGrid from './Components/BookGrid'
 import Navigation from './Components/NavBar'
 import Login from './Views/Login'
 import BookInfo from './Views/BookInfo'
+import MyBooks from './Views/MyBooks'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const App = () => {
   const user = useSelector(state => state.login.user)
-
-  const Home = () => {
-    return (
-        <div>
-          <h1 className="mt-3 text-center">My Library</h1>
-        </div>
-    )
-  }
 
   if (user === null) {
     return (
@@ -39,7 +32,7 @@ const App = () => {
           <BookGrid />
         </Route>
         <Route path="/">
-          <Home />
+          <MyBooks />
         </Route>
       </Switch>       
     </Router>
