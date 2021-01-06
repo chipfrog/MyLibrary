@@ -14,4 +14,5 @@
 |26.12.2020 | 2h | Started using Redux |
 |27.12.2020 | 2h | More components using Redux |
 |5.1.2021 | 4.5h | Page refresh doesn't logout user, search results are deleted during logout, user's books can be listed, studied redux store, fixed bugs |
-|Total time | 33.5h | |
+|6.1.2021 | 4h | Showing user's library, adding books via Redux, adding rating and review for books | 
+|Total time | 37.5h | |
