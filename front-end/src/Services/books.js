@@ -17,7 +17,7 @@ export const addBook = async ( bookInfo, token ) => {
   const bookData = {
     title: bookInfo.volumeInfo.title,
     author: bookInfo.volumeInfo.authors[0],
-    coverImage: bookInfo.volumeInfo.imageLinks.thumbnail,
+    linkToCoverImage: bookInfo.volumeInfo.imageLinks.thumbnail,
     rating: 1
   }
 

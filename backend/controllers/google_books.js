@@ -35,7 +35,7 @@ googleBooksRouter.post('/', async (req, res) => {
     title: body.title,
     author: body.author,
     publicationYear: body.publicationYear,
-    linkToCoverImage: body.coverImage,
+    linkToCoverImage: body.linkToCoverImage,
     rating: body.rating,
     review: body.review,
     owned: body.owned,

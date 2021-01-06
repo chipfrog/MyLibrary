@@ -1,9 +1,11 @@
 import React from 'react'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
-import { addBook } from '../Services/books'
-import { useSelector } from 'react-redux'
+// import { addBook } from '../Services/books'
+import { useDispatch ,useSelector } from 'react-redux'
+import { addBookToLibrary } from '../Reducers/loginReducer'
 
 const BookInfo = () => {
+  const dispatch = useDispatch()
   const info = useSelector(state => state.bookInfo)
   const token = useSelector(state => state.login.token)
   const bookInfo = info.bookInfo
@@ -15,7 +17,8 @@ const BookInfo = () => {
   }
 
   const handleBookAdding = async () => {
-    await addBook(bookInfo, token)
+    dispatch(addBookToLibrary(bookInfo, token))
+    // await addBook(bookInfo, token)
   }
   // Korjaa näkymä, kun kirjalijoita enemmän kuin yksi!
   
