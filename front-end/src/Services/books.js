@@ -18,7 +18,8 @@ export const addBook = async ( bookInfo, token ) => {
     title: bookInfo.volumeInfo.title,
     author: bookInfo.volumeInfo.authors[0],
     linkToCoverImage: bookInfo.volumeInfo.imageLinks.thumbnail,
-    rating: 1
+    review: bookInfo.review,
+    rating: bookInfo.rating
   }
 
   const response = await axios.post(`${baseUrl}/api/googlebooks`, bookData, config)
