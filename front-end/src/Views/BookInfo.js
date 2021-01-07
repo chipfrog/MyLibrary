@@ -13,9 +13,9 @@ const BookInfo = () => {
   const [review, setReview] = useState('')
   const [rating, setRating] = useState(1)
   const [read, setRead] = useState(false)
-  const [quotes, setQuotes] = useState([])
+  const [quote, setQuote] = useState('')
+  const [quoteList, setQuoteList] = useState([])
   
-
   if (bookInfo === null) {
     return (
       <h2>undefined</h2>
@@ -25,19 +25,23 @@ const BookInfo = () => {
   const handleBookAdding = async (event) => {
     event.preventDefault()
     
-    const test = {
+    const book = {
       ...bookInfo,
       rating: rating,
       review: review,
-      read: read
+      read: read,
+      quotes: quoteList
     }
-    console.log(test)
+    console.log(book)
 
-    dispatch(addBookToLibrary(test, token))
+    dispatch(addBookToLibrary(book, token))
+  }
+
+  const handleAddQuote = () => {
+    setQuoteList(quoteList.concat(quote))
+    setQuote('')
   }
   // Korjaa näkymä, kun kirjalijoita enemmän kuin yksi!
-  
-  // className="pt-4 text-center"
 
   return (
     <Container className="pt-4 text-center">
@@ -92,6 +96,16 @@ const BookInfo = () => {
                 value={review}
                 onChange={e => setReview(e.target.value)}
               />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Favorite quotes</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={6}
+                value={quote}
+                onChange={e => setQuote(e.target.value)}
+              />
+              <Button onClick={handleAddQuote}>Add quote</Button>
             </Form.Group>
             <Form.Group controlId="formBookRead">
               <Form.Label>Book read</Form.Label>
