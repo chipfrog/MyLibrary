@@ -5,11 +5,13 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import bookSearchReducer from './Reducers/bookSearchReducer'
 import bookInfoReducer from './Reducers/bookInfoReducer'
 import loginReducer from './Reducers/loginReducer'
+import notificationReducer from './Reducers/notificationReducer'
 
 const reducer = combineReducers({
   bookSearch: bookSearchReducer,
   bookInfo: bookInfoReducer,
-  login: loginReducer
+  login: loginReducer,
+  notification: notificationReducer
 })
 
 const saveUserState = (state) => {

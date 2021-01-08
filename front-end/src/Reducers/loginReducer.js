@@ -1,6 +1,7 @@
 import { login } from '../Services/login'
 import { addBook } from '../Services/books'
 import { createUser } from '../Services/user'
+import { setNotification } from './notificationReducer'
 
 const initialState = {
   user: null,
@@ -38,7 +39,7 @@ export const tryUserCreation = ({ username, password }) => {
         data: initialState
       })
     } catch (error) {
-      console.log(error)
+      dispatch(setNotification('User already exists!'))
     }
   }
 }
@@ -54,7 +55,7 @@ export const tryLogin = ({ username, password }) => {
       })
 
     } catch(error) {
-      console.log('wrong credentials!')
+      dispatch(setNotification('Wrong credentials!'))
     }
   }
 }

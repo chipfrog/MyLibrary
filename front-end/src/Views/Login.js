@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import { Button, Form, Row, Col, Modal, Container } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { tryLogin, tryUserCreation } from '../Reducers/loginReducer'
+import Notification from '../Components/Notification'
 
 const Login = () => {
   const dispatch = useDispatch()
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleLogin = async (event) => {
     event.preventDefault()
@@ -18,13 +22,15 @@ const Login = () => {
 
   const handleUserCreation = async (event) => {
     event.preventDefault()
-    const username = event.target.usernameRegister.value
-    const password = event.target.passwordRegister.value
     dispatch(tryUserCreation({ username, password }))
+    setUsername('')
+    setPassword('')
+    handleClose()
   }
 
   return (
     <Container>
+      <Notification />
       <Form className="mt-5" onSubmit={handleLogin}>
         <h2>Login</h2>
         <Form.Group as={Row} controlId="formBasicText">
@@ -63,7 +69,12 @@ const Login = () => {
                   <Form.Label>Username</Form.Label>
                 </Form.Row>
                 <Form.Row>
-                  <Form.Control type="text" name="usernameRegister" placeholder="Choose your username" />
+                  <Form.Control 
+                    type="text" 
+                    name="usernameRegister" 
+                    value={username} 
+                    placeholder="Choose your username" 
+                    onChange={({ target }) => setUsername(target.value)} />
                 </Form.Row>
               </Form.Group>
               <Form.Group>
@@ -71,7 +82,12 @@ const Login = () => {
                   <Form.Label>Password</Form.Label>
                 </Form.Row>
                 <Form.Row>
-                  <Form.Control type="password" name="passwordRegister" placeholder="Choose a secure password" />
+                  <Form.Control 
+                    type="password" 
+                    name="passwordRegister" 
+                    value={password} 
+                    placeholder="Choose a secure password" 
+                    onChange={({ target }) => setPassword(target.value)} />
                 </Form.Row>
               </Form.Group>
               <Form.Group as={Row} >
