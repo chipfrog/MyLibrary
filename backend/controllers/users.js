@@ -31,8 +31,15 @@ usersRouter.get('/', async (req, res) => {
 
 usersRouter.post('/', async (req, res) => {
   const body = req.body
+  console.log(body)
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(body.password, saltRounds)
+
+  const userExists = await User.findOne({ username: body.username })
+
+  if (userExists) {
+    return res.status(409).json({ error: 'Username already exists!' })
+  }
 
   const user = new User({
     username: body.username,

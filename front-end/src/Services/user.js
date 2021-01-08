@@ -11,5 +11,10 @@ export const getUser = async (token) => {
   const user = await axios.get(`${baseUrl}/api/user`, config)
   // console.log(`requested user: ${user.data}`)
   return user.data
+}
 
+export const createUser = async (userInfo) => {
+  const user = await axios.post(`${baseUrl}/api/user`, userInfo)
+  console.log(`User creation: ${user.data}`)
+  return user.data
 }

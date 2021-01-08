@@ -1,5 +1,6 @@
 import { login } from '../Services/login'
 import { addBook } from '../Services/books'
+import { createUser } from '../Services/user'
 
 const initialState = {
   user: null,
@@ -11,20 +12,50 @@ const loginReducer = (state = initialState, action) => {
       return action.data
     case 'LOGOUT':
       return action.data
+    case 'CREATE_USER':
+      return action.data
     case 'ADD_BOOK':
       return {
         ...state, 
         user_books: [...state.user_books, action.data]}
-      // return [...state, action.data]
     case 'UPDATE_BOOK':
       return state
     case 'DELETE_BOOK':
       return state
     case 'RESET':
-      return initialState
-      
+      return initialState  
     default:
       return state
+  }
+}
+
+export const tryUserCreation = ({ username, password }) => {
+  return async dispatch => {
+    try {
+      await createUser({ username, password })
+      dispatch({
+        type: 'CREATE_USER',
+        data: initialState
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const tryLogin = ({ username, password }) => {
+  console.log(`username: ${username}, password: ${password}`)
+  return async dispatch => {
+    try {
+      const user = await login({ username, password })
+      dispatch({
+        type: 'LOGIN',
+        data: user
+      })
+
+    } catch(error) {
+      console.log('wrong credentials!')
+    }
   }
 }
 
@@ -53,22 +84,6 @@ export const tryLogout = () => {
   return {
     type: 'LOGOUT',
     data: initialState
-  }
-}
-
-export const tryLogin = ({ username, password }) => {
-  console.log(`username: ${username}, password: ${password}`)
-  return async dispatch => {
-    try {
-      const user = await login({ username, password })
-      dispatch({
-        type: 'LOGIN',
-        data: user
-      })
-
-    } catch(error) {
-      console.log('wrong credentials!')
-    }
   }
 }
 
