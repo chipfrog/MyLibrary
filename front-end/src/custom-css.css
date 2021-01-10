@@ -1,6 +1,12 @@
+html, body {
+  height: 100%;
+}
+
+
 .testi {
   background-image: url('./Images/library.jpg');
   height: 100vh;
+  min-height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

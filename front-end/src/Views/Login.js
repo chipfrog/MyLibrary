@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <Container>
       <Notification />
-      <Form className="mt-5" onSubmit={handleLogin}>
+      <Form className="pt-5" onSubmit={handleLogin}>
         <h2>Login</h2>
         <Form.Group as={Row} controlId="formBasicText">
           <Form.Label column sm={2}>Username</Form.Label>
