@@ -16,5 +16,6 @@
 |5.1.2021 | 4.5h | Page refresh doesn't logout user, search results are deleted during logout, user's books can be listed, studied redux store, fixed bugs |
 |6.1.2021 | 4h | Showing user's library, adding books via Redux, adding rating and review for books |
 |7.1.2021 | 2.5h | Changed book form appearance, added option to add quotes and mark book as read, studied Bootstrap |
-|8.1.2021 | 3h | Added login, notification and user creation functionality to frontend | 
+|8.1.2021 | 3h | Added login, notification and user creation functionality to frontend |
+|10.1.2021 | 2h | studied css and other styling tools, added background image to login screen |
 |Total time | 43h | |
