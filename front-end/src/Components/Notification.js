@@ -1,4 +1,4 @@
-import { Toast } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { resetNotification } from '../Reducers/notificationReducer'
 
@@ -12,14 +12,14 @@ const Notification = () => {
 
   if (message !== null) {
     return (
-      <Toast onClose={handleShow}>
-        <Toast.Header>
+      <Alert className="notification" variant="danger" onClose={handleShow} dismissible>
+        <Alert.Heading>
           <strong>Notification!</strong>
-        </Toast.Header>
-        <Toast.Body>
+        </Alert.Heading>
+        <p>
           {message}
-        </Toast.Body>
-      </Toast>
+        </p>
+      </Alert>
     )
   }
 
