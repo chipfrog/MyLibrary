@@ -13,6 +13,15 @@ html, body {
   position: absolute;
 }
 
+.background_main {
+  background-image: url('./Images/wood.jpg');
+  height: 100vh;
+  min-height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .testi {
   background-image: url('./Images/kirja.jpg');
   height: 100vh;

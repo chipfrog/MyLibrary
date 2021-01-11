@@ -69,7 +69,8 @@ export const addBookToLibrary = (book, token) => {
         title: book.volumeInfo.title,
         author: book.volumeInfo.authors[0],
         linkToCoverImage: book.volumeInfo.imageLinks.thumbnail,
-        rating: 1
+        rating: book.rating,
+        quotes: book.quotes
       }
       dispatch({
         type: 'ADD_BOOK',
