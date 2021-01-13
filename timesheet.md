@@ -18,5 +18,6 @@
 |7.1.2021 | 2.5h | Changed book form appearance, added option to add quotes and mark book as read, studied Bootstrap |
 |8.1.2021 | 3h | Added login, notification and user creation functionality to frontend |
 |10.1.2021 | 2h | studied css and other styling tools, added background image to login screen |
-|12.1.2021 | 3h | App now running on Heroku, made a separate repo for frontend | 
-|Total time | 48h | |
+|12.1.2021 | 3h | App now running on Heroku, made a separate repo for frontend |
+|13.1.2021 | 4h | Created a new view for owned books, made a star based rating system to frontend |
+|Total time | 52h | |
