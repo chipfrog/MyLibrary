@@ -33,18 +33,26 @@ usersRouter.post('/', async (req, res) => {
   const body = req.body
   console.log(body)
   const saltRounds = 10
-  const passwordHash = await bcrypt.hash(body.password, saltRounds)
+  const passwordHash = await bcrypt.hash(body.newPassword, saltRounds)
 
-  const userExists = await User.findOne({ username: body.username })
+  const userExists = await User.findOne({ username: body.newUsername })
 
   if (userExists) {
     return res.status(409).json({ error: 'Username already exists!' })
   }
 
   const user = new User({
-    username: body.username,
+    username: body.newUsername,
     passwordHash
   })
+
+  if (!user) {
+    return res.status(400).json({ error: 'Virhe' })
+  }
+
+  // if (body.username === '') {
+  //   return res.status(400).json({ error: 'Malformed values' })
+  // }
 
   const savedUser = await user.save()
   res.json(savedUser)

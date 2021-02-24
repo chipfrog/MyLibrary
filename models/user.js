@@ -5,6 +5,8 @@ const Book = require('../models/book').schema
 const userSchema = mongoose.Schema({
   username: {
     type: String,
+    required: true,
+    minlength: 5,
     unique: true
   },
   passwordHash: String,
