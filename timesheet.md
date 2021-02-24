@@ -21,4 +21,5 @@
 |12.1.2021 | 3h | App now running on Heroku, made a separate repo for frontend |
 |13.1.2021 | 4h | Created a new view for owned books, made a star based rating system to frontend |
 |14.1.2021 | 6h | Editing added books from backend and frontend, new view for added books, more interactive star rating system, refactoring, fixed bugs |
-|Total time | 58h | |
+|24.2.2021 | 4.5h | Visual changes, login form validation, refactoring, fixed background bug |
+|Total time | 62.5h | |
