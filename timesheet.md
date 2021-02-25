@@ -22,4 +22,5 @@
 |13.1.2021 | 4h | Created a new view for owned books, made a star based rating system to frontend |
 |14.1.2021 | 6h | Editing added books from backend and frontend, new view for added books, more interactive star rating system, refactoring, fixed bugs |
 |24.2.2021 | 4.5h | Visual changes, login form validation, refactoring, fixed background bug |
-|Total time | 62.5h | |
+|25.2.2021 | 7h | Sorting books by rating, title and author in ascending and descending order, new visuals for book table, refactoring |
+|Total time | 69.5h | |
