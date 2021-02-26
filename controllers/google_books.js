@@ -76,4 +76,23 @@ googleBooksRouter.put('/edit', async (req, res) => {
   res.json(book.toJSON())
 })
 
+googleBooksRouter.delete('/delete', async (req, res) => {
+  const id = req.body.id
+  const auth = req.body.config.headers.Authorization
+  let token = null
+
+  if (auth && auth.toLowerCase().startsWith('bearer ')) {
+    token = auth.substring(7)
+  }
+
+  const decodedToken = jwt.verify(token, config.SECRET)
+  if (!token || !decodedToken.id) {
+    return res.status(401).json({ error: 'token missing or invalid' })
+  }
+  const user = await User.findById(decodedToken.id)
+  user.books.id(id).remove()
+  await user.save()
+  res.json(user.toJSON())
+})
+
 module.exports = googleBooksRouter
