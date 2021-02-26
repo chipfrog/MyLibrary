@@ -42,10 +42,10 @@ googleBooksRouter.post('/', async (req, res) => {
     read: body.read,
     quotes: body.quotes
   })
-  
+  console.log(`Lisätty kirja: ${book}`)
   user.books = user.books.concat(book)
   await user.save()
-  console.log(user.books)
+  
   res.json(book.toJSON())
 })
 
@@ -59,27 +59,21 @@ googleBooksRouter.put('/edit', async (req, res) => {
   }
 
   const user = await User.findById(decodedToken.id)
-  const books = user.books
-  let bookIndex = -1
-  for (let i = 0; i < books.length; i ++) {
-    if (books[i].id === body.id) {
-      bookIndex = i
-      break
-    }
-  }
-  
-  if (bookIndex === -1) {
+  const book = user.books.id(body.id)
+
+  if (!book) {
     return res.status(404).json({ error: 'book not found' })
   }
+  console.log(`haettu kirja: ${book}`)
 
-  user.books[bookIndex].review = body.review
-  user.books[bookIndex].quotes = body.quotes
-  user.books[bookIndex].read = body.read
-  user.books[bookIndex].rating = body.rating
+  book.review = body.review
+  book.quotes = body.quotes
+  book.read = body.read
+  book.rating = body.rating
 
   await user.save()
 
-  res.json(user.books[bookIndex].toJSON())
+  res.json(book.toJSON())
 })
 
 module.exports = googleBooksRouter
