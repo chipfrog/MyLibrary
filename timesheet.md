@@ -23,4 +23,5 @@
 |14.1.2021 | 6h | Editing added books from backend and frontend, new view for added books, more interactive star rating system, refactoring, fixed bugs |
 |24.2.2021 | 4.5h | Visual changes, login form validation, refactoring, fixed background bug |
 |25.2.2021 | 7h | Sorting books by rating, title and author in ascending and descending order, new visuals for book table, refactoring |
-|Total time | 69.5h | |
+|26.2.2021 | 5.5h | Deleting book works, tried to fix visual issues, refactored backend to use Mongoose better |
+|Total time | 75h | |
