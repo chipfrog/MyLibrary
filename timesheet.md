@@ -25,4 +25,5 @@
 |25.2.2021 | 7h | Sorting books by rating, title and author in ascending and descending order, new visuals for book table, refactoring |
 |26.2.2021 | 5.5h | Deleting book works, tried to fix visual issues, refactored backend to use Mongoose better |
 |01.3.2021 | 2h | Fighting with Bootstrap |
-|Total time | 77h | |
+|02.3.2021 | 7h | Adding and deleting quotes, better looking UI, tried to solve page refresh issue |
+|Total time | 84h | |
