@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Quote = require('../models/quote').schema
 
 const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -9,9 +10,7 @@ const bookSchema = new mongoose.Schema({
   review: { type: String },
   owned: Boolean,
   read: Boolean,
-  quotes: [
-    { type: String }
-  ],
+  quotes: [Quote],
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

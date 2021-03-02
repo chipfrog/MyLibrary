@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const googleBooksRouter = require('express').Router();
 const Book = require('../models/book')
 const User = require('../models/user')
+const Quote = require('../models/quote')
 const baseUrl = `https://www.googleapis.com/books/v1/volumes?`
 
 const getToken = request => {
@@ -46,6 +47,35 @@ googleBooksRouter.post('/', async (req, res) => {
   user.books = user.books.concat(book)
   await user.save()
   
+  res.json(book.toJSON())
+})
+
+googleBooksRouter.post('/addquote', async (req, res) => {
+  const body = req.body
+  const token = getToken(req)
+
+  console.log(body)
+
+  const decodedToken = jwt.verify(token, config.SECRET)
+  if (!token || !decodedToken.id) {
+    return res.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  const user = await User.findById(decodedToken.id)
+  const book = user.books.id(body.book_id)
+
+  if (!book) {
+    return res.status(404).json({ error: 'book not found' })
+  }
+  console.log(`haettu kirja: ${book}`)
+
+  const quote = new Quote({
+    quote: body.quote
+  })
+
+  book.quotes = book.quotes.concat(quote)
+  await user.save()
+
   res.json(book.toJSON())
 })
 
@@ -92,6 +122,7 @@ googleBooksRouter.delete('/delete', async (req, res) => {
   const user = await User.findById(decodedToken.id)
   user.books.id(id).remove()
   await user.save()
+  
   res.json(user.toJSON())
 })
 
