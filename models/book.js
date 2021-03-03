@@ -6,7 +6,7 @@ const bookSchema = new mongoose.Schema({
   author: { type: String, required: true },
   publicationYear: Number,
   linkToCoverImage: String,
-  rating: { type: Number, min: 1, max: 10, default: 0 },
+  rating: { type: Number, min: 1, max: 5, default: 1 },
   review: { type: String },
   owned: Boolean,
   read: Boolean,
