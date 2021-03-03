@@ -26,4 +26,5 @@
 |26.2.2021 | 5.5h | Deleting book works, tried to fix visual issues, refactored backend to use Mongoose better |
 |01.3.2021 | 2h | Fighting with Bootstrap |
 |02.3.2021 | 7h | Adding and deleting quotes, better looking UI, tried to solve page refresh issue |
-|Total time | 84h | |
+|03.3.2021 | 6h | Redirects from deleting and adding book, fixed refresh issue, confirmation on book delete, refactoring |
+|Total time | 90h | |
