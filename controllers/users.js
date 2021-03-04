@@ -22,11 +22,9 @@ usersRouter.get('/', async (req, res) => {
   if (!token || !decodedToken.id) {
     return res.status(401).json({ error: 'token missing or invalid' })
   }
-
   const user = await User.findById(decodedToken.id)
   console.log(user)
   res.send(user.toJSON())
-  // res.json(user.toJSON())
 })
 
 usersRouter.post('/', async (req, res) => {
@@ -34,18 +32,15 @@ usersRouter.post('/', async (req, res) => {
   console.log(body)
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(body.newPassword, saltRounds)
-
   const userExists = await User.findOne({ username: body.newUsername })
 
   if (userExists) {
     return res.status(409).json({ error: 'Username already exists!' })
   }
-
   const user = new User({
     username: body.newUsername,
     passwordHash
   })
-
   if (!user) {
     return res.status(400).json({ error: 'Virhe' })
   }

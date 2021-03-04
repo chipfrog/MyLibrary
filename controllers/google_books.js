@@ -91,6 +91,8 @@ googleBooksRouter.put('/edit', async (req, res) => {
   const user = await User.findById(decodedToken.id)
   const book = user.books.id(body.id)
 
+  console.log(book)
+
   if (!book) {
     return res.status(404).json({ error: 'book not found' })
   }
@@ -100,8 +102,13 @@ googleBooksRouter.put('/edit', async (req, res) => {
   book.quotes = body.quotes
   book.read = body.read
   book.rating = body.rating
+  book.owned = body.owned
+
+  console.log(body)
 
   await user.save()
+
+  console.log(book)
 
   res.json(book.toJSON())
 })

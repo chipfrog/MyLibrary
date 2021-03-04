@@ -8,8 +8,8 @@ const bookSchema = new mongoose.Schema({
   linkToCoverImage: String,
   rating: { type: Number, min: 1, max: 5, default: 1 },
   review: { type: String },
-  owned: Boolean,
-  read: Boolean,
+  owned: { type: Boolean, default: false },
+  read: { type: Boolean, default: false },
   quotes: [Quote],
   user: {
     type: mongoose.Schema.Types.ObjectId,
