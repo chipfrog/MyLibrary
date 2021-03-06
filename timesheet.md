@@ -27,4 +27,5 @@
 |01.3.2021 | 2h | Fighting with Bootstrap |
 |02.3.2021 | 7h | Adding and deleting quotes, better looking UI, tried to solve page refresh issue |
 |03.3.2021 | 6h | Redirects from deleting and adding book, fixed refresh issue, confirmation on book delete, refactoring |
-|Total time | 90h | |
+|04.3.2021 | 3h | Marking book as read and owned, fewer calls to backend |
+|Total time | 93h | |
