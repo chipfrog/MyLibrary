@@ -1,5 +1,7 @@
 # MyLibrary
 
+Work in progress...
+
 Program made for University of Helsinki's Full Stack web developement course. 
 
 It allows user to search for books using Google Books API and save them in a database.
