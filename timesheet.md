@@ -29,4 +29,5 @@
 |03.3.2021 | 6h | Redirects from deleting and adding book, fixed refresh issue, confirmation on book delete, refactoring |
 |04.3.2021 | 3h | Marking book as read and owned, fewer calls to backend |
 |06.3.2021 | 4,75h | Fixed bugs |
+|11.3.2021| 6,25h | Made UI prettier, book seacrh workig from Navbar, sorting books via useState, Spinner is shown when books are searched |
 |Total time | 97,75h | |
