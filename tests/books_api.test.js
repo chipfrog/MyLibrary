@@ -5,17 +5,17 @@ const api = supertest(app)
 const User = require('../models/user')
 const Book = require('../models/book')
 
-const initialBooks = [
-  {
-    
-  }
-]
+
+beforeAll(async () => {
+  await User.deleteMany({})
+})
 
 test('creating a new user works', async() => {
   await api
     .post('/api/user')
-    .send(initialUser)
+    .send({newUsername: 'Testaaja', newPassword: 'salasana'})
     .expect(200)
+    .expect('Content-Type', /application\/json/)
 })
 
 test('logging in works', async() => {
@@ -25,6 +25,12 @@ test('logging in works', async() => {
     .expect(200)
     .expect('Content-Type', /application\/json/)
 })
+
+// test('adding new books works', async() => {
+//   await api
+//     .post('/api/googlebooks')
+//     .send({title: 'The Blade Itself' , author: 'Joe Abercrombie'})
+// })
 
 afterAll(() => {
   mongoose.connection.close()
