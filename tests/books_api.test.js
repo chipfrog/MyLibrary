@@ -24,6 +24,7 @@ const initialBooks = [
 ]
 
 beforeAll(async () => {
+  jest.setTimeout(10000)
   await User.deleteMany({})
   await api
     .post('/api/user')
