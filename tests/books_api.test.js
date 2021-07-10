@@ -3,7 +3,6 @@ const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
 const User = require('../models/user')
-const Book = require('../models/book')
 
 let token = null
 
@@ -11,12 +10,12 @@ const initialBooks = [
   {
     title: 'Prince of Thorns',
     author: 'Mark Lawrence',
-    grade: 4
+    rating: 4
   },
   {
     title: 'Muumipeikko ja pyrstötähti',
     author: 'Tove Jansson',
-    grade: 5
+    rating: 5
   },
   {
     title: 'Sinuhe egyptiläinen',
@@ -29,17 +28,24 @@ beforeAll(async () => {
   await api
     .post('/api/user')
     .send({newUsername: 'stock_user', newPassword: 'password'})
+  
   await api  
     .post('/api/login')
     .send({username: 'stock_user', password: 'password'})
     .then((res) => {
       token = res.body.token
     })
-  for (book in initialBooks) {
+  
+  for (i = 0; i < initialBooks.length; i ++) {
     await api
       .post('/api/googlebooks')
-      .send(book)
+      .auth(token, { type: 'bearer' })
+      .send(initialBooks[i])
   }
+  const user = await api
+    .get('/api/user')
+    .auth(token, { type: 'bearer' })
+    
 })
 
 describe('login', () => {
@@ -91,12 +97,31 @@ describe('user creation', () => {
 })
 
 describe('user`s books', () => {
-  test('new book can be added', async() => {
-    await api
+  let book_id = null
+
+  test('new book can be created and is added to the user`s library', async() => {
+    const user = await api
+      .get('/api/user')
+      .auth(token, { type: 'bearer' })
+      .expect(200)
+    
+    expect(user.body.books).toHaveLength(initialBooks.length)  
+
+    const addedBook = await api
       .post('/api/googlebooks')
       .auth(token, { type: 'bearer' })
       .send({title: 'The Blade Itself', author: 'Joe Abercrombie', rating: 4, rewiew: 'Great book!'})
       .expect(200)
+
+    book_id = addedBook.body.book_id
+    expect(addedBook.body.title).toEqual('The Blade Itself')
+
+    updatedUser = await api
+      .get('/api/user')
+      .auth(token, { type: 'bearer' })
+      .expect(200)
+    
+    expect(updatedUser.body.books).toHaveLength(initialBooks.length + 1)    
   })
 
   test('book cannot be added without title or author', async() => {
@@ -112,6 +137,45 @@ describe('user`s books', () => {
       .send({author: 'J.R.R Tolkien'})
       .expect(500)
   })
+
+  test('book cannot be added without valid token', async() => {
+    await api
+      .post('/api/googlebooks')
+      .send({title: 'Muumipappa ja meri', author: 'Tove Jansson'})
+      .expect(500)
+  })
+
+  test('quotes can be added to a book', async() => {
+    await api
+      .post('/api/googlebooks/addquote')
+      .auth(token, { type: 'bearer' })
+      .send({quote: 'Live, Love, Laugh', book_id: updatedUser.body.books[0].id})
+      .expect(200)
+  })
+
+  test('quotes can`t be added without correct book_id', async() => {
+    await api
+      .post('/api/googlebooks/addquote')
+      .auth(token, { type: 'bearer' })
+      .send({quote: 'Memento Mori', book_id: 'aBcD1234'})
+      .expect(404)
+  })
+
+  test('quotes can`t be added without valid token', async() => {
+    await api
+      .post('/api/googlebooks/addquote')
+      .send({quote: 'Live, Love, Laugh', book_id: updatedUser.body.books[0].id})
+      .expect(500)
+  })
+
+  test('book information can be edited', async() =>  {
+    await api
+      .post('/api/googlebooks/edit')
+      .auth(token, { type: 'bearer' })
+      .
+  })
+
+
 })
 
 afterAll(() => {
