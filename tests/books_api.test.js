@@ -168,14 +168,6 @@ describe('user`s books', () => {
       .expect(500)
   })
 
-  test('book information can be edited', async() =>  {
-    await api
-      .post('/api/googlebooks/edit')
-      .auth(token, { type: 'bearer' })
-      .
-  })
-
-
 })
 
 afterAll(() => {
