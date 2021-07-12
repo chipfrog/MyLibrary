@@ -3,12 +3,23 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.1
+  codecov: codecov/codecov@1.2.3
+
+jobs:
+  codecov_upload:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - codecov/upload:
+          file: {{ /home/jajuuso/projektit/MyLibrary/coverage/lcov-report/index.html }} 
 
 workflows:
   sample:
     jobs:
       - node/test:
           version: '15.1'
+      - codecov_upload    
           # This is the node version to use for the `cimg/node` tag
           # Relevant tags can be found on the CircleCI Developer Hub
           # https://circleci.com/developer/images/image/cimg/node
