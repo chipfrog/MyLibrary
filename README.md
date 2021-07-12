@@ -1,5 +1,7 @@
 # MyLibrary
 
+[![CircleCl](https://circleci.com/gh/chipfrog/MyLibrary.svg?style=svg)](https://circleci.com/gh/chipfrog/MyLibrary)
+
 Work in progress...
 
 Program made for University of Helsinki's Full Stack web developement course. 

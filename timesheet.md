@@ -30,5 +30,6 @@
 |04.3.2021 | 3h | Marking book as read and owned, fewer calls to backend |
 |06.3.2021 | 4,75h | Fixed bugs |
 |11.3.2021| 6,25h | Made UI prettier, book seacrh workig from Navbar, sorting books via useState, Spinner is shown when books are searched |C
-|09.07.2021 | 3h | Studied different testing methods, initialized testing libraries and created simple tests for backend|
-|Total time | 107h | |
+|09.07.2021 | 3h | Studied different testing methods, initialized testing libraries and created simple tests for backend |
+|10.07.2021 | 3h | Created more tests |
+|Total time | 110h | |
