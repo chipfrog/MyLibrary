@@ -11,14 +11,14 @@ jobs:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
+      - node/test:
+          version: '15.1'
       - codecov/upload:
           file: coverage/lcov-report/index.html 
 
 workflows:
   sample:
     jobs:
-      - node/test:
-          version: '15.1'
       - codecov_upload    
           # This is the node version to use for the `cimg/node` tag
           # Relevant tags can be found on the CircleCI Developer Hub
