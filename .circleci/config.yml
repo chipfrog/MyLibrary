@@ -12,7 +12,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - codecov/upload:
-          file: /home/jajuuso/projektit/MyLibrary/coverage/lcov-report/index.html 
+          file: coverage/lcov-report/index.html 
 
 workflows:
   sample:
