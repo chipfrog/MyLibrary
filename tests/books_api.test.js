@@ -186,16 +186,21 @@ describe('user`s books', () => {
   })
 
   test('books can be deleted', async() => {
-
     const user = await api
       .delete('/api/googlebooks/delete')
       .auth(token, { type: 'bearer' })
       .send({ id: book_id })
     expect(user.body.books.length).toBe(3)
   })
-  
-  
+})
 
+describe('book search', () => {
+  test('books can be searched via Google Books API', async() => {
+    const searchResults = await api
+      .get('/api/googlebooks/javascript')
+      .expect(200)
+    expect(searchResults.body[0].volumeInfo.title.toLowerCase() || searchResults.body[0].volumeInfo.description.toLowerCase()).toMatch('javascript') 
+  })
 })
 
 afterAll(() => {
