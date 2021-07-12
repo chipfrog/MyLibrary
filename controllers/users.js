@@ -23,13 +23,18 @@ usersRouter.get('/', async (req, res) => {
     return res.status(401).json({ error: 'token missing or invalid' })
   }
   const user = await User.findById(decodedToken.id)
-  console.log(user)
+  
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(user)
+  }
   res.send(user.toJSON())
 })
 
 usersRouter.post('/', async (req, res) => {
   const body = req.body
-  console.log(body)
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(body)
+  }
   const saltRounds = 10
   const passwordHash = await bcrypt.hash(body.newPassword, saltRounds)
   const userExists = await User.findOne({ username: body.newUsername })

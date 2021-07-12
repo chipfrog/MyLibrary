@@ -43,7 +43,9 @@ googleBooksRouter.post('/', async (req, res) => {
     read: body.read,
     quotes: body.quotes
   })
-  console.log(`Lisätty kirja: ${book}`)
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(`Lisätty kirja: ${book}`)
+  }
   user.books = user.books.concat(book)
   await user.save()
   
@@ -53,9 +55,6 @@ googleBooksRouter.post('/', async (req, res) => {
 googleBooksRouter.post('/addquote', async (req, res) => {
   const body = req.body
   const token = getToken(req)
-
-  console.log(body)
-
   const decodedToken = jwt.verify(token, config.SECRET)
   if (!token || !decodedToken.id) {
     return res.status(401).json({ error: 'token missing or invalid' })
@@ -67,7 +66,9 @@ googleBooksRouter.post('/addquote', async (req, res) => {
   if (!book) {
     return res.status(404).json({ error: 'book not found' })
   }
-  console.log(`haettu kirja: ${book}`)
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(`haettu kirja: ${book}`)
+  }
 
   const quote = new Quote({
     quote: body.quote
@@ -96,7 +97,9 @@ googleBooksRouter.put('/edit', async (req, res) => {
   if (!book) {
     return res.status(404).json({ error: 'book not found' })
   }
-  console.log(`haettu kirja: ${book}`)
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(`haettu kirja: ${book}`)
+  }
 
   book.review = body.review
   book.quotes = body.quotes
@@ -115,12 +118,12 @@ googleBooksRouter.put('/edit', async (req, res) => {
 
 googleBooksRouter.delete('/delete', async (req, res) => {
   const id = req.body.id
-  const auth = req.body.config.headers.Authorization
-  let token = null
+  // const auth = req.body.config.headers.Authorization
+  const token = getToken(req)
 
-  if (auth && auth.toLowerCase().startsWith('bearer ')) {
-    token = auth.substring(7)
-  }
+  // if (auth && auth.toLowerCase().startsWith('bearer ')) {
+  //   token = auth.substring(7)
+  // }
 
   const decodedToken = jwt.verify(token, config.SECRET)
   if (!token || !decodedToken.id) {

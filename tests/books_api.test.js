@@ -99,6 +99,8 @@ describe('user creation', () => {
 
 describe('user`s books', () => {
   let book_id = null
+  let addedBook = null
+  let updatedUser = null
 
   test('new book can be created and is added to the user`s library', async() => {
     const user = await api
@@ -108,20 +110,21 @@ describe('user`s books', () => {
     
     expect(user.body.books).toHaveLength(initialBooks.length)  
 
-    const addedBook = await api
+    addedBook = await api
       .post('/api/googlebooks')
       .auth(token, { type: 'bearer' })
       .send({title: 'The Blade Itself', author: 'Joe Abercrombie', rating: 4, rewiew: 'Great book!'})
       .expect(200)
 
-    book_id = addedBook.body.book_id
+    book_id = addedBook.body.id
     expect(addedBook.body.title).toEqual('The Blade Itself')
 
     updatedUser = await api
       .get('/api/user')
       .auth(token, { type: 'bearer' })
       .expect(200)
-    
+
+    console.log(updatedUser.body.books)
     expect(updatedUser.body.books).toHaveLength(initialBooks.length + 1)    
   })
 
@@ -167,6 +170,28 @@ describe('user`s books', () => {
       .post('/api/googlebooks/addquote')
       .send({quote: 'Live, Love, Laugh', book_id: updatedUser.body.books[0].id})
       .expect(500)
+  })
+
+  test('book information can be edited', async() => {
+    updatedBook = await api
+      .put('/api/googlebooks/edit')
+      .auth(token, { type: 'bearer' })
+      .send({ review: 'abcd', read: true, rating: 2, owned: true, id: book_id})
+      .expect(200)
+
+    expect(updatedBook.body.review).toBe('abcd')
+    expect(updatedBook.body.read).toBe(true)
+    expect(updatedBook.body.rating).toBe(2)
+    expect(updatedBook.body.owned).toBe(true)    
+  })
+
+  test('books can be deleted', async() => {
+
+    const user = await api
+      .delete('/api/googlebooks/delete')
+      .auth(token, { type: 'bearer' })
+      .send({ id: book_id })
+    expect(user.body.books.length).toBe(3)
   })
   
   
