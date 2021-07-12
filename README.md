@@ -1,6 +1,7 @@
 # MyLibrary
 
 [![CircleCl](https://circleci.com/gh/chipfrog/MyLibrary.svg?style=svg)](https://circleci.com/gh/chipfrog/MyLibrary)
+[![codecov](https://codecov.io/gh/chipfrog/MyLibrary/branch/main/graph/badge.svg)](https://codecov.io/gh/chipfrog/MyLibrary)
 
 Work in progress...
 
