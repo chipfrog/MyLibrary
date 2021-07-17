@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "env NODE_ENV=production node index.js",
+    "dev": "env NODE_ENV=development nodemon index.js",
     "build:ui": "rm -rf build && cd ../MyLibrary-frontend/front-end/ && npm run build --prod && cp -r build ../../MyLibrary/",
     "deploy": "git push heroku main",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
     "logs:prod": "heroku logs --tail",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --coverage && codecov"
+    "test": "env NODE_ENV=test jest --verbose --runInBand --coverage && codecov"
   },
   "author": "",
   "license": "ISC",
