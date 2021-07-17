@@ -33,4 +33,5 @@
 |09.07.2021 | 3h | Studied different testing methods, initialized testing libraries and created simple tests for backend |
 |10.07.2021 | 3h | Created more tests |
 |11.07.2021 | 5,5h | Got CircleCI and codecov working, created more tests |
-|Total time | 115,5h | |
+|17.07.2021 | 6h | Added new notifications, made UI adjustments, some refactoring |
+|Total time | 121,5h | |
