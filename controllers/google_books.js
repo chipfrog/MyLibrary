@@ -124,12 +124,6 @@ googleBooksRouter.put('/edit', async (req, res) => {
 googleBooksRouter.delete('/delete', async (req, res) => {
   const id = req.body.id
   const token = getToken(req)
-  console.log(token)
-  // const auth = req.body.config.headers.Authorization
-
-  // if (auth && auth.toLowerCase().startsWith('bearer ')) {
-  //   token = auth.substring(7)
-  // }
 
   const decodedToken = jwt.verify(token, config.SECRET)
   if (!token || !decodedToken.id) {
