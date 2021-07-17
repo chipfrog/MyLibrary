@@ -190,6 +190,8 @@ describe('user`s books', () => {
       .delete('/api/googlebooks/delete')
       .auth(token, { type: 'bearer' })
       .send({ id: book_id })
+    console.log(user.body)
+
     expect(user.body.books.length).toBe(3)
   })
 })

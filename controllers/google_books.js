@@ -8,7 +8,12 @@ const Quote = require('../models/quote')
 const baseUrl = `https://www.googleapis.com/books/v1/volumes?`
 
 const getToken = request => {
-  const auth = request.get('authorization')
+  let auth = request.get('authorization')
+
+  // for deleting books
+  if (auth === undefined) {
+    auth = request.body.config.headers.Authorization
+  }
   if (auth && auth.toLowerCase().startsWith('bearer ')) {
     return auth.substring(7)
   }
@@ -118,11 +123,13 @@ googleBooksRouter.put('/edit', async (req, res) => {
 
 googleBooksRouter.delete('/delete', async (req, res) => {
   const id = req.body.id
-  const auth = req.body.config.headers.Authorization
+  const token = getToken(req)
+  console.log(token)
+  // const auth = req.body.config.headers.Authorization
 
-  if (auth && auth.toLowerCase().startsWith('bearer ')) {
-    token = auth.substring(7)
-  }
+  // if (auth && auth.toLowerCase().startsWith('bearer ')) {
+  //   token = auth.substring(7)
+  // }
 
   const decodedToken = jwt.verify(token, config.SECRET)
   if (!token || !decodedToken.id) {
