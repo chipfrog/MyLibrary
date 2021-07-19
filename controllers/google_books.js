@@ -46,7 +46,8 @@ googleBooksRouter.post('/', async (req, res) => {
     review: body.review,
     owned: body.owned,
     read: body.read,
-    quotes: body.quotes
+    quotes: body.quotes,
+    categories: body.categories
   })
   if (process.env.NODE_ENV !== 'test') {
     console.log(`Lisätty kirja: ${book}`)
@@ -108,6 +109,7 @@ googleBooksRouter.put('/edit', async (req, res) => {
 
   book.review = body.review
   book.quotes = body.quotes
+  book.categories = body.categories
   book.read = body.read
   book.rating = body.rating
   book.owned = body.owned

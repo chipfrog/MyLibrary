@@ -11,6 +11,7 @@ const bookSchema = new mongoose.Schema({
   owned: { type: Boolean, default: false },
   read: { type: Boolean, default: false },
   quotes: [Quote],
+  categories: [{type: String}],
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
