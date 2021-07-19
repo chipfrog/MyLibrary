@@ -35,4 +35,5 @@
 |11.07.2021 | 5,5h | Got CircleCI and codecov working, created more tests |
 |17.07.2021 | 6h | Added new notifications, made UI adjustments, some refactoring |
 |18.07.2021 | 3,5h | Messing with css, made book info prettier, added average review score |
-|Total time | 125h | |
+|19.07.2021 | 6,5h  | Adding and deleting categories for owned books, showing categories for google books, improved notification functionality, some refactoring |
+|Total time | 131,5h | |
