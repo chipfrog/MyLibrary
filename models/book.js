@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Quote = require('../models/quote').schema
 
 const bookSchema = new mongoose.Schema({
+  date: { type: Date, required: true },
   title: { type: String, required: true },
   author: { type: String, required: true },
   publicationYear: Number,

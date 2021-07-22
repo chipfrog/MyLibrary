@@ -38,6 +38,7 @@ googleBooksRouter.post('/', async (req, res) => {
   const user = await User.findById(decodedToken.id)
   
   const book = new Book({
+    date: body.date,
     title: body.title,
     author: body.author,
     publicationYear: body.publicationYear,
@@ -106,7 +107,7 @@ googleBooksRouter.put('/edit', async (req, res) => {
   if (process.env.NODE_ENV !== 'test') {
     console.log(`haettu kirja: ${book}`)
   }
-
+  
   book.review = body.review
   book.quotes = body.quotes
   book.categories = body.categories
