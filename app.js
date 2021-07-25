@@ -24,12 +24,8 @@ app.use(express.json())
 app.use('/api/googlebooks', googleBooksRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/user', userRouter)
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build/index.html'), function(err) {
-    if (err) {
-      res.sendStatus(500).send(err)
-    }
-  })
+app.get('*', (req, res) => {
+  res.redirect('/')
 })
 
 module.exports = app
