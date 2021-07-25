@@ -6,6 +6,7 @@ const userRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const app = express()
 const cors = require('cors')
+const path = require('path')
 
 const mongoose = require('mongoose')
 
@@ -23,5 +24,12 @@ app.use(express.json())
 app.use('/api/googlebooks', googleBooksRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/user', userRouter)
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build/index.html'), function(err) {
+    if (err) {
+      res.sendStatus(500).send(err)
+    }
+  })
+})
 
 module.exports = app
