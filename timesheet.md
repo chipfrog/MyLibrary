@@ -36,4 +36,5 @@
 |17.07.2021 | 6h | Added new notifications, made UI adjustments, some refactoring |
 |18.07.2021 | 3,5h | Messing with css, made book info prettier, added average review score |
 |19.07.2021 | 6,5h  | Adding and deleting categories for owned books, showing categories for google books, improved notification functionality, some refactoring |
-|Total time | 131,5h | |
+|22.07.2021 | 4,5h | Added Star rating based on google books average rating score, 'Date added' for books, fixed a bug with background image, cleaned code |
+|Total time | 136h | |
