@@ -6,7 +6,6 @@ const userRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const app = express()
 const cors = require('cors')
-const path = require('path')
 
 const mongoose = require('mongoose')
 
