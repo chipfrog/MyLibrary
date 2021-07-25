@@ -10,16 +10,19 @@ const initialBooks = [
   {
     title: 'Prince of Thorns',
     author: 'Mark Lawrence',
+    date: new Date(),
     rating: 4
   },
   {
     title: 'Muumipeikko ja pyrstötähti',
     author: 'Tove Jansson',
+    date: new Date(),
     rating: 5
   },
   {
     title: 'Sinuhe egyptiläinen',
-    author: 'Mika Waltari'
+    author: 'Mika Waltari',
+    date: new Date(),
   }
 ]
 jest.setTimeout(20000)
@@ -113,7 +116,7 @@ describe('user`s books', () => {
     addedBook = await api
       .post('/api/googlebooks')
       .auth(token, { type: 'bearer' })
-      .send({title: 'The Blade Itself', author: 'Joe Abercrombie', rating: 4, rewiew: 'Great book!'})
+      .send({title: 'The Blade Itself', author: 'Joe Abercrombie', rating: 4, date: new Date(), rewiew: 'Great book!'})
       .expect(200)
 
     book_id = addedBook.body.id
