@@ -37,5 +37,6 @@
 |18.07.2021 | 3,5h | Messing with css, made book info prettier, added average review score |
 |19.07.2021 | 6,5h  | Adding and deleting categories for owned books, showing categories for google books, improved notification functionality, some refactoring |
 |22.07.2021 | 4,5h | Added Star rating based on google books average rating score, 'Date added' for books, fixed a bug with background image, cleaned code |
-|25.07.2021 | 7,5h | Made account deletion possible, books can be searched by title and author, page refresh redirects to frontpage instead of giving error, customized ui | 
-|Total time | 143,5h |
+|25.07.2021 | 7,5h | Made account deletion possible, books can be searched by title and author, page refresh redirects to frontpage instead of giving error, customized ui |
+|26.07.2021 | 5,5h | Many error fixes in ui + fine tuning, tested different ui solutions, added color picker for background banner |
+|Total time | 149h |
