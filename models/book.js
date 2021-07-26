@@ -11,6 +11,7 @@ const bookSchema = new mongoose.Schema({
   review: { type: String },
   owned: { type: Boolean, default: false },
   read: { type: Boolean, default: false },
+  color: {type: String, default: "#dce2e3"},
   quotes: [Quote],
   categories: [{type: String}],
   user: {

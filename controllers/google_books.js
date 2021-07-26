@@ -66,7 +66,6 @@ googleBooksRouter.post('/addquote', async (req, res) => {
   if (!token || !decodedToken.id) {
     return res.status(401).json({ error: 'token missing or invalid' })
   }
-
   const user = await User.findById(decodedToken.id)
   const book = user.books.id(body.book_id)
 
@@ -111,7 +110,8 @@ googleBooksRouter.put('/edit', async (req, res) => {
   book.review = body.review
   book.quotes = body.quotes
   book.categories = body.categories
-  book.read = body.read
+  book.read = body.read,
+  book.color = body.color,
   book.rating = body.rating
   book.owned = body.owned
 
