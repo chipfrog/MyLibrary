@@ -39,5 +39,6 @@
 |22.07.2021 | 4,5h | Added Star rating based on google books average rating score, 'Date added' for books, fixed a bug with background image, cleaned code |
 |25.07.2021 | 7,5h | Made account deletion possible, books can be searched by title and author, page refresh redirects to frontpage instead of giving error, customized ui |
 |26.07.2021 | 5,5h | Many error fixes in ui + fine tuning, tested different ui solutions, added color picker for background banner |
-|27.07.2021 | 6h | Books in library can be filtered by "read", "owned", "not owned" and "unread" values and their combinations, cosmetic changes: conditional icons, username is shown etc. | 
+|27.07.2021 | 6h | Books in library can be filtered by "read", "owned", "not owned" and "unread" values and their combinations, cosmetic changes: conditional icons, username is shown etc. |
+|28.07.2021 | 4h | Started making e2e Cypress tests, had some difficulties with Cypress | 
 |Total time | 155h |
