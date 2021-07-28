@@ -23,6 +23,12 @@ app.use(express.json())
 app.use('/api/googlebooks', googleBooksRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/user', userRouter)
+
+if (process.env.NODE_ENV === 'test') {
+  const testRouter = require('./controllers/testing')
+  app.use('/api/testing', testRouter)
+}
+
 app.get('*', (req, res) => {
   res.redirect('/')
 })
