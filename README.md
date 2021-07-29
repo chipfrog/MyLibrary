@@ -15,4 +15,6 @@ Books can be saved in different categories such as 'read', 'to-be-read', 'wishli
 
 [Frontend](https://github.com/chipfrog/MyLibrary-frontend)
 
+[User guide](https://github.com/chipfrog/MyLibrary/blob/main/Documentation/User%20guide.md)
+
 [Timesheet](https://github.com/chipfrog/MyLibrary/blob/main/Documentation/timesheet.md)
