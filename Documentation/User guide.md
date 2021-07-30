@@ -17,7 +17,7 @@ On the top right corner there is cog icon next to your username. Click the icon 
 ![Searchbar](https://github.com/chipfrog/MyLibrary/blob/main/Documentation/pictures/searchbar.png)
 
 On the top right corner there is a search bar that is used for searching books from Google's database. To do a general search simply type something related to the book you're looking for (title, author, etc.) and click the blue search button. You will be directed to a search results page where results are shown as clickable 
-book covers. You can also do more specific searches. By clicking the "Filter by" button next to the search bar you can choose to search by title or author field alone. To do a general search again, choose "No filter". Keywords can also be written inside quotation marks to search for exact word matches.
+book covers. You can also do more specific searches. By clicking the "Search by" button next to the search bar you can choose to search by title or author field alone. To do a general search again, choose "No filter". Keywords can also be written inside quotation marks to search for exact word matches.
 By clicking a book cover on the results page, you get to view the book's info page. Basic information about the book is shown there like title, author, description and category. If Google Books users have reviewed the book, an average review score is shown with the number of reviews. To add book to your library, click "Add book to library" button. You will be directed to the main page and the added book will appear on the page among your other books.
 
 ### Going back to search results
