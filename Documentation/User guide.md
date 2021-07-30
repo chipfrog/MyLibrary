@@ -77,7 +77,7 @@ On the main page (you get there after login or by clicking "My Library" on the t
 ### Filtering
 ![Filtering books](https://github.com/chipfrog/MyLibrary/blob/main/Documentation/pictures/filterby.png)
 
-Books can also be filtered by "read", "unread", "owned" and "not owned" statuses. Click Filter by on the navigation bar on choose the desired criteria. Multiple criteria can be chosen and books matching the criteria are shown. Choosing "read" will disable "unread" and choosing "owned" will disable "not owned" and vice versa. Uncheck the filters or refresh the page to show all added books again. At the moment sorting and filtering don't work at the same time. If you have active filters and choose a sorting method, the filters get reset and all books are shown and sorted.
+Books can also be filtered by "read", "unread", "owned" and "not owned" statuses. Click Filter by on the navigation bar on choose the desired criteria. Multiple criteria can be chosen and books matching the criteria are shown. Choosing "read" will disable "unread" and choosing "owned" will disable "not owned" and vice versa. Uncheck the filters or refresh the page to show all added books again.
 
 ## Deleting account
 To completeley and unreversibly delete your account and all associated information (books, reviews etc.) click the cog icon on the top right corner and choose red "Delete Account". A confirmation window will pop up and you can confirm deletion by clicking "Delete my account" or stop deletion by clicking Cancel button or cross. 
