@@ -42,4 +42,5 @@
 |27.07.2021 | 6h | Books in library can be filtered by "read", "owned", "not owned" and "unread" values and their combinations, cosmetic changes: conditional icons, username is shown etc. |
 |28.07.2021 | 4h | Started making e2e Cypress tests, had some difficulties with Cypress |
 |29.07.2021 | 7h | Wrote user guide, tried to get sorting and filtering to work simultaneously |
-|Total time | 166h |
+|30.07.2021 | 7h | Got sorting and filtering working simulatenously, sorting based on author's surname instead of full name, changed dropdown menu appearance, refactoring, fixed issue with cypress, added cypress tests |
+|Total time | 173h |
