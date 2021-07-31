@@ -43,4 +43,5 @@
 |28.07.2021 | 4h | Started making e2e Cypress tests, had some difficulties with Cypress |
 |29.07.2021 | 7h | Wrote user guide, tried to get sorting and filtering to work simultaneously |
 |30.07.2021 | 7h | Got sorting and filtering working simulatenously, sorting based on author's surname instead of full name, changed dropdown menu appearance, refactoring, fixed issue with cypress, added cypress tests |
-|Total time | 173h |
+|31.07.2021 | 2h | Cleaned code, remove unnecessary console.logs, added cypress tests, tested the program
+|Total time | 175h |
