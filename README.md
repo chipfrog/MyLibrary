@@ -9,7 +9,7 @@ Books can be searched from Google's database via Google Books API and saved in a
 User can then write reviews, give scores, save memorable quotes and add categories for the added books.
 Application also features various sorting and filtering methods to make managing library easier.
 
-[App running on Heroku](https://lost-chapters.herokuapp.com/
+[App running on Heroku](https://lost-chapters.herokuapp.com/)
 * Username: test_user
 * password: not_secure
 
