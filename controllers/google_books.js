@@ -50,9 +50,6 @@ googleBooksRouter.post('/', async (req, res) => {
     quotes: body.quotes,
     categories: body.categories
   })
-  if (process.env.NODE_ENV !== 'test') {
-    console.log(`Lisätty kirja: ${book}`)
-  }
   user.books = user.books.concat(book)
   await user.save()
   
@@ -72,10 +69,6 @@ googleBooksRouter.post('/addquote', async (req, res) => {
   if (!book) {
     return res.status(404).json({ error: 'book not found' })
   }
-  if (process.env.NODE_ENV !== 'test') {
-    console.log(`haettu kirja: ${book}`)
-  }
-
   const quote = new Quote({
     quote: body.quote
   })
@@ -98,13 +91,8 @@ googleBooksRouter.put('/edit', async (req, res) => {
   const user = await User.findById(decodedToken.id)
   const book = user.books.id(body.id)
 
-  console.log(book)
-
   if (!book) {
     return res.status(404).json({ error: 'book not found' })
-  }
-  if (process.env.NODE_ENV !== 'test') {
-    console.log(`haettu kirja: ${book}`)
   }
   
   book.review = body.review
@@ -115,12 +103,8 @@ googleBooksRouter.put('/edit', async (req, res) => {
   book.rating = body.rating
   book.owned = body.owned
 
-  console.log(body)
-
   await user.save()
-
-  console.log(book)
-
+  
   res.json(book.toJSON())
 })
 
